@@ -1,0 +1,34 @@
+package com.konglx.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import com.konglx.bean.UserP;
+import com.konglx.service.impl.UserServiceImpl;
+
+@Controller
+@RequestMapping(value = "/user")
+public class UserController {
+    
+    @Autowired
+    private UserServiceImpl userServiceImpl;
+
+    @RequestMapping(value = "/login")
+    public String Index(HttpServletRequest request, Model model,UserP user){
+        UserP userInfo = userServiceImpl.getUserById(user);
+        model.addAttribute("user",userInfo);
+        //model.addAttribute("path","/user/main");
+        model.addAttribute("path","/user/main");
+        return "User";
+    }
+    @RequestMapping(value = "/main")
+    public String main(HttpServletRequest request, Model model){
+
+        model.addAttribute("path","WEB-INF/jsp/main.jsp");
+         return "main";
+    }
+
+}

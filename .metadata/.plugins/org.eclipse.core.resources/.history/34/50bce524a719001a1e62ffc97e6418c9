@@ -1,0 +1,5 @@
+package com.konglx.controller.basicinfo.factory;
+
+public class FactoryController {
+
+}

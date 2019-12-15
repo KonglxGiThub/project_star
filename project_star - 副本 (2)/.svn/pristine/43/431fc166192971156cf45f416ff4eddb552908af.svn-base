@@ -1,0 +1,9 @@
+package com.konglx.service;
+
+import com.konglx.bean.UserP;
+
+public interface UserService {
+    
+     public UserP getUserById(UserP user);
+    
+}

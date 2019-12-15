@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.konglx.dao.UserPMapper">
+  <resultMap id="BaseResultMap" type="com.konglx.bean.UserP">
+    <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="DEPT_ID" jdbcType="VARCHAR" property="deptId" />
+    <result column="BUSINESS_POSITION_ID" jdbcType="VARCHAR" property="businessPositionId" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="PY_CODE" jdbcType="VARCHAR" property="pyCode" />
+    <result column="REAL_NAME" jdbcType="VARCHAR" property="realName" />
+    <result column="POSITION" jdbcType="VARCHAR" property="position" />
+    <result column="DUTY_DEPT" jdbcType="VARCHAR" property="dutyDept" />
+    <result column="DUTY_LEVEL" jdbcType="VARCHAR" property="dutyLevel" />
+    <result column="USER_LEVEL" jdbcType="INTEGER" property="userLevel" />
+    <result column="CNOTE" jdbcType="VARCHAR" property="cnote" />
+    <result column="IS_USE" jdbcType="CHAR" property="isUse" />
+    <result column="IS_CHANGE_PASS" jdbcType="CHAR" property="isChangePass" />
+    <result column="IS_ONLINE" jdbcType="CHAR" property="isOnline" />
+    <result column="CUR_STATION" jdbcType="VARCHAR" property="curStation" />
+    <result column="ORDER_NO" jdbcType="DECIMAL" property="orderNo" />
+    <result column="LOGIN_NUM" jdbcType="INTEGER" property="loginNum" />
+    <result column="LOGIN_TIME" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="REALP" jdbcType="VARCHAR" property="realp" />
+    <result column="SUPER_USER" jdbcType="BIT" property="superUser" />
+    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
+    <result column="TELEPHONE" jdbcType="VARCHAR" property="telephone" />
+    <result column="IS_SEND_SMS" jdbcType="VARCHAR" property="isSendSms" />
+  </resultMap>
+  <select id="getUserInfo" parameterType="com.konglx.bean.UserP" resultType="com.konglx.bean.UserP">
+       select * from user_p
+	WHERE
+			NAME = #{name}
+		AND PASSWORD = #{password}
+
+  </select>
+  <insert id="insertUserInfo" parameterType="com.konglx.bean.UserP">
+    insert into user_p
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="businessPositionId != null">
+        BUSINESS_POSITION_ID,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="pyCode != null">
+        PY_CODE,
+      </if>
+      <if test="realName != null">
+        REAL_NAME,
+      </if>
+      <if test="position != null">
+        POSITION,
+      </if>
+      <if test="dutyDept != null">
+        DUTY_DEPT,
+      </if>
+      <if test="dutyLevel != null">
+        DUTY_LEVEL,
+      </if>
+      <if test="userLevel != null">
+        USER_LEVEL,
+      </if>
+      <if test="cnote != null">
+        CNOTE,
+      </if>
+      <if test="isUse != null">
+        IS_USE,
+      </if>
+      <if test="isChangePass != null">
+        IS_CHANGE_PASS,
+      </if>
+      <if test="isOnline != null">
+        IS_ONLINE,
+      </if>
+      <if test="curStation != null">
+        CUR_STATION,
+      </if>
+      <if test="orderNo != null">
+        ORDER_NO,
+      </if>
+      <if test="loginNum != null">
+        LOGIN_NUM,
+      </if>
+      <if test="loginTime != null">
+        LOGIN_TIME,
+      </if>
+      <if test="realp != null">
+        REALP,
+      </if>
+      <if test="superUser != null">
+        SUPER_USER,
+      </if>
+      <if test="mobile != null">
+        MOBILE,
+      </if>
+      <if test="telephone != null">
+        TELEPHONE,
+      </if>
+      <if test="isSendSms != null">
+        IS_SEND_SMS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessPositionId != null">
+        #{businessPositionId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="pyCode != null">
+        #{pyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyDept != null">
+        #{dutyDept,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyLevel != null">
+        #{dutyLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevel != null">
+        #{userLevel,jdbcType=INTEGER},
+      </if>
+      <if test="cnote != null">
+        #{cnote,jdbcType=VARCHAR},
+      </if>
+      <if test="isUse != null">
+        #{isUse,jdbcType=CHAR},
+      </if>
+      <if test="isChangePass != null">
+        #{isChangePass,jdbcType=CHAR},
+      </if>
+      <if test="isOnline != null">
+        #{isOnline,jdbcType=CHAR},
+      </if>
+      <if test="curStation != null">
+        #{curStation,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=DECIMAL},
+      </if>
+      <if test="loginNum != null">
+        #{loginNum,jdbcType=INTEGER},
+      </if>
+      <if test="loginTime != null">
+        #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realp != null">
+        #{realp,jdbcType=VARCHAR},
+      </if>
+      <if test="superUser != null">
+        #{superUser,jdbcType=BIT},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="isSendSms != null">
+        #{isSendSms,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  
+</mapper>

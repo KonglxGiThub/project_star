@@ -1,0 +1,23 @@
+package com.konglx.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.konglx.bean.UserP;
+import com.konglx.dao.UserPMapper;
+import com.konglx.service.UserService;
+
+@Service("userService")
+public class UserServiceImpl implements UserService{
+    
+    @Autowired
+    private UserPMapper userDao;
+    
+    @Override
+    public UserP getUserById(UserP user) {
+
+        return this.userDao.getUserInfo(user);
+
+    }
+
+}

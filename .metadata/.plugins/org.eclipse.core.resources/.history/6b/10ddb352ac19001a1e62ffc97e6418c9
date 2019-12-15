@@ -1,0 +1,15 @@
+package cn.itcast.jk.dao;
+
+import java.util.Map;
+
+import cn.itcast.jk.domain.Factory;
+
+/**
+ * @Description:
+ * @Author:	konglx
+ * @Company:	http://java.itcast.cn
+ * @CreateDate:	2019/12/08
+ */
+public interface FactoryDao extends BaseDao<Factory> {
+	public void changeState(Map<String,Object> map);
+}
